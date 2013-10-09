@@ -2,8 +2,12 @@ require 'rubygems'
 require 'bundler'
 Bundler.require
 require 'json'
+
+configure :production do
+  require 'newrelic_rpm'
+end
   
-if settings.environment == :development
+configure :development do
   Bundler.require(:development)
   Dotenv.load
 end
