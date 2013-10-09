@@ -6,6 +6,7 @@ GEM
       json
     json (1.8.0)
     kgio (2.8.1)
+    newrelic_rpm (3.6.8.164)
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
@@ -28,6 +29,7 @@ PLATFORMS
 DEPENDENCIES
   dotenv
   dropbox-sdk
+  newrelic_rpm
   shotgun
   sinatra
   unicorn
