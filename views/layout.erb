@@ -4,11 +4,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="/css/application.css" type="text/css" media="screen">
+  <script type="text/javascript" src="/js/jquery.js"></script>
   <script type="text/javascript" src="/js/application.js"></script>
+  <script type="text/javascript">
+    window.endpoint = "<%= ENV['DROPBOX_ENDPOINT'] %>";
+  </script>
 </head>
 <body>
   <div class="container">
-	 <%= yield %>
+    <%= yield %>
   </div>
 </body>
 </html>
