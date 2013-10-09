@@ -5,7 +5,6 @@ require 'json'
 
 configure :production do
   require 'newrelic_rpm'
-  set :cache, Dalli::Client.new
 end
   
 configure :development do
@@ -14,13 +13,14 @@ configure :development do
 end
 
 set :root, File.dirname(__FILE__)
+set :cache, Dalli::Client.new(ENV["MEMCACHIER_SERVERS"], {:expires_in => 60, :username => ENV["MEMCACHIER_USERNAME"], :password => ENV["MEMCACHIER_PASSWORD"]})
 
 get '/' do
   erb :front
 end
 
 get '/files' do
-  @dropboxfiles ||= settings.cache.fetch("dropboxfiles", :expires_in => 60) do
+  @dropboxfiles ||= settings.cache.fetch("dropboxfiles") do
     client = DropboxClient.new(ENV['DROPBOX_ACCESS_TOKEN'])
     files = client.metadata('/Public')
     files.to_json
