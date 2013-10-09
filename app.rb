@@ -23,3 +23,7 @@ get '/files' do
   files = client.metadata('/Public')
   files.to_json
 end
+
+get '/newrelic' do
+  "Yeah!"
+end
