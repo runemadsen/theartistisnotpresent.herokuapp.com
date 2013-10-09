@@ -1,11 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    dalli (2.6.4)
     dotenv (0.5.0)
     dropbox-sdk (1.6.1)
       json
     json (1.8.0)
     kgio (2.8.1)
+    memcachier (0.0.2)
     newrelic_rpm (3.6.8.164)
     rack (1.5.2)
     rack-protection (1.5.0)
@@ -27,8 +29,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dalli
   dotenv
   dropbox-sdk
+  memcachier
   newrelic_rpm
   shotgun
   sinatra

@@ -3,6 +3,8 @@ ruby '1.9.3'
 
 gem 'sinatra'
 gem 'dropbox-sdk', :require => "dropbox_sdk"
+gem 'memcachier'
+gem 'dalli'
 
 group :development do
 	gem 'shotgun'
