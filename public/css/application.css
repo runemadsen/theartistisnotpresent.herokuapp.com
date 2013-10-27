@@ -26,6 +26,11 @@ figcaption {
   color: #acacac;
 }
 
+a {
+  color: rgb(158, 92, 92);
+  text-decoration: none;
+}
+
 h1 {
   font-weight: 300;
   color: #333;
