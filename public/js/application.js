@@ -12,27 +12,30 @@ var app = {
       
       $.each(data.contents, function(index, content) {
         
-        var full_path = content.path.split("/");
-        var folder_name = full_path[full_path.length-1];
-        var folder_split = folder_name.split("_");
-
-        var time_object = {
-          year : folder_split[0],
-          month : folder_split[1],
-          day : folder_split[2],
-          hour : folder_split[3],
-          minute : folder_split[4],
-          second : folder_split[5]
-        };
-
-        var link = "/run/" + folder_name;
-        
-        $(t.svg_template({
-          endpoint : window.js_data.endpoint,
-          imgsrc : folder_name + "/latest.svg",
-          link : link,
-          label : "Artwork generated " + t.time_template(time_object) + ". <a href='"+link+"'>Click to see process</span>."
-        })).appendTo(".container");
+        if(content.is_dir)
+        {
+          var full_path = content.path.split("/");
+          var folder_name = full_path[full_path.length-1];
+          var folder_split = folder_name.split("_");
+  
+          var time_object = {
+            year : folder_split[0],
+            month : folder_split[1],
+            day : folder_split[2],
+            hour : folder_split[3],
+            minute : folder_split[4],
+            second : folder_split[5]
+          };
+  
+          var link = "/run/" + folder_name;
+          
+          $(t.svg_template({
+            endpoint : window.js_data.endpoint,
+            imgsrc : folder_name + "/latest.svg",
+            link : link,
+            label : "Artwork generated " + t.time_template(time_object) + ". <a href='"+link+"'>Click to see process</span>."
+          })).appendTo(".container");
+        }
 
       });
   
@@ -49,7 +52,7 @@ var app = {
         
         var full_path = content.path.split("/");
         var svg_file = full_path[full_path.length-1];
-        if(svg_file == "latest.svg") return;
+        if(svg_file == "latest.svg" || svg_file.split(".")[1] == "json") return;
 
         var svg_split = svg_file.split("-");
         var generationNum = svg_split[0];
