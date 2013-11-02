@@ -44,6 +44,16 @@ h1 {
   color: #333;
 }
 
+p {
+  line-height: 1.4em;
+  font-size: 16px;
+  color: rgb(39, 39, 39);
+}
+
+#project-description {
+  margin-bottom: 30px;
+}
+
 /* For larger screens
 ------------------------------------------ */
 
